@@ -172,3 +172,13 @@ label{
     color: $successColor;
   }
 }
+
+.message-error{
+  color: $errorColor;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+.input-error, .input-error .ant-select-selector{
+  border-color: $errorColor !important;
+}
