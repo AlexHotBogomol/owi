@@ -1,14 +1,14 @@
 import React from "react";
 
-const Title = () => (
-  <div className="title">
-    <h1>Dateneingabe</h1>
-    <p>
+const Info = () => (
+  <div className="info">
+    <h1 className="info-heading">Dateneingabe</h1>
+    <p className="info-description">
       Zur zeitnahen Bearbeitung und Verfahrensbeschleunigung möchten wir Sie bitten,
       die nachstehenden Fragen vollständig und richtig zu beantworten. Hierfür vielen Dank!
     </p>
-    <p>* Pflichtfeld</p>
+    <p className="info-sign">* Pflichtfeld</p>
   </div>
 );
 
-export default Title
+export default Info

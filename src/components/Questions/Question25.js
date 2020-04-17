@@ -1,19 +1,18 @@
 import React from "react";
 import { Controller } from "react-hook-form";
-import {
-  Radio,
-} from "antd";
+import { Radio } from "antd";
 
-const Question1 = ({control}) => (
+const Question25 = ({ control, isArbeitgeber }) => (
   <div className="question">
-    <label className="required" htmlFor="Clientdata.Geschlecht">
-      1. Geschlecht
+    <label htmlFor="Arbeitgeber">
+      25. Könnten Sie im Rahmen ihrer beruflichen Tätigkeit für die Dauer des
+      Fahrverbots (z.B. durch Homeoffice o.ä) auf den Führerschein verzichten?
     </label>
     <Controller
       as={
         <div>
           <Radio.Group
-            defaultValue="Herr"
+            defaultValue="Nein"
             style={{
               width: "100%"
             }}
@@ -21,33 +20,40 @@ const Question1 = ({control}) => (
             size="large"
           >
             <Radio.Button
-              value="Herr"
+              value="Ja"
               style={{
                 width: "50%",
                 textAlign: "center"
               }}
             >
-              Herr
+              Ja
             </Radio.Button>
             <Radio.Button
-              value="Frau"
+              value="Nein"
               style={{
                 width: "50%",
                 textAlign: "center"
               }}
             >
-              Frau
+              Nein
             </Radio.Button>
           </Radio.Group>
         </div>
       }
-      defaultValue="Herr"
-      control={control}
+      defaultValue="Nein"
       className="question--radio"
-      name="Clientdata.Geschlecht"
-      id="Clientdata.Geschlecht"
+      control={control}
+      name="Arbeitgeber"
+      id="Arbeitgeber"
     />
+    {(isArbeitgeber === "Ja") ? (
+      <p className="message-info message-info--small">
+        <span>
+          Eine Umwandlung ist in diesem Fall möglicherweise ausgeschlossen
+        </span>
+      </p>
+    ) : null}
   </div>
 );
 
-export default Question1
+export default Question25;
