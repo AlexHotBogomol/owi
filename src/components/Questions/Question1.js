@@ -13,7 +13,7 @@ const Question1 = ({control}) => (
       as={
         <div>
           <Radio.Group
-            defaultValue="Herr"
+            defaultValue="1"
             style={{
               width: "100%"
             }}
@@ -21,7 +21,7 @@ const Question1 = ({control}) => (
             size="large"
           >
             <Radio.Button
-              value="Herr"
+              value="1"
               style={{
                 width: "50%",
                 textAlign: "center"
@@ -30,7 +30,7 @@ const Question1 = ({control}) => (
               Herr
             </Radio.Button>
             <Radio.Button
-              value="Frau"
+              value="2"
               style={{
                 width: "50%",
                 textAlign: "center"
@@ -41,7 +41,7 @@ const Question1 = ({control}) => (
           </Radio.Group>
         </div>
       }
-      defaultValue="Herr"
+      defaultValue="1"
       control={control}
       className="question--radio"
       name="Clientdata.Geschlecht"

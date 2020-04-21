@@ -4,9 +4,9 @@ import {Radio, Select} from "antd";
 
 const {Option} = Select;
 
-const Question24 = ({ control, isMitfahrgelegenheit }) => (
+const Question24 = ({ control, isMitfahrgelegenheitFrage }) => (
   <div className="question">
-    <label htmlFor="Mitfahrgelegenheit">
+    <label htmlFor="Mitfahrgelegenheit.Frage">
       24. Könnten Sie für ihre beruflichen oder privaten Fahrten auf öffentliche
       Verkehrsmittel ausweichen oder eine Mitfahrgelegenheit bilden?
     </label>
@@ -45,10 +45,10 @@ const Question24 = ({ control, isMitfahrgelegenheit }) => (
       defaultValue="Nein"
       className="question--radio"
       control={control}
-      name="Mitfahrgelegenheit"
-      id="Mitfahrgelegenheit"
+      name="Mitfahrgelegenheit.Frage"
+      id="Mitfahrgelegenheit.Frage"
     />
-    {isMitfahrgelegenheit === "Ja" ? (
+    {isMitfahrgelegenheitFrage === "Ja" ? (
       <p className="message-info message-info--small">
         <span>
           Eine Umwandlung ist in diesem Fall möglicherweise ausgeschlossen

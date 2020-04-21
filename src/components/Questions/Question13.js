@@ -1,6 +1,6 @@
 import React from "react";
 import { Controller } from "react-hook-form";
-import RechtsschutzersicherungOptions from "../../data/RechtsschutzersicherungOptions";
+import bussgeldstelle from "../../data/bussgeldstelle";
 import {
   Select,
 } from "antd";
@@ -15,7 +15,7 @@ const Question13 = ({control}) => (
     <Controller
       as={
         <Select
-          placeholder="Rechtsschutzersicherung"
+          placeholder="Bußgeldstelle / Ausstellende Behörde"
           style={{ width: "100%" }}
           showSearch={true}
           optionFilterProp="children"
@@ -24,8 +24,8 @@ const Question13 = ({control}) => (
             option.children.toLowerCase().indexOf(input.toLowerCase()) === 0
           }
         >
-          {RechtsschutzersicherungOptions.map((option, index)=>(
-            <Option key={index} value={option}>{option}</Option>
+          {bussgeldstelle.map((option, index)=>(
+            <Option key={index} value={option.value}>{option.name}</Option>
           ))}
         </Select>
       }

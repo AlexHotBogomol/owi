@@ -257,7 +257,7 @@
 			$Fahrleistung = $_POST['Fahrleistung'];
 		}
 		
-		$Mitfahrgelegenheit = "";
+		$Mitfahrgelegenheit_Frage = "";
 		$Mitfahrgelegenheit_Anbindung = "false";
 		$Mitfahrgelegenheit_Arbeitsmaterialen = "false";
 		$Mitfahrgelegenheit_Berufskraftfahrer = "false";
@@ -267,6 +267,9 @@
 		
 		if(isset($_POST['Mitfahrgelegenheit'])){
 			$Mitfahrgelegenheit = $_POST['Mitfahrgelegenheit'];
+			if(isset($Mitfahrgelegenheit['Frage'])){
+				$Mitfahrgelegenheit_Frage = $Mitfahrgelegenheit['Frage'];
+			}
 			if(isset($Mitfahrgelegenheit['Select'])){
 				$Mitfahrgelegenheit_Select = $Mitfahrgelegenheit['Select'];
 				if($Mitfahrgelegenheit_Select === "Anbindung"){
@@ -317,7 +320,7 @@
 		$Weitere_Dokumente = [];
 		
 		if(isset($_POST['Weitere_Dokumente'])){
-			$doks = $Buss['Weitere_Dokumente']['fileList'];
+			$doks = $_POST['Weitere_Dokumente']['fileList'];
 			foreach ($doks as $dok){
 				$Weitere_Dokumente[] = "<a href='" . $uploadsDir . $dok['name'] . "' target='_blank'>" . $dok['name'] . "</a>";
 			}
@@ -325,6 +328,8 @@
 		
 		$email->SetFrom("info@lawnow.de", 'info@lawnow.de');
 		$email->isHTML(true);
+		$email->CharSet = "UTF-8";
+		$email->Encoding = 'base64';
 		$email->Subject   = 'Owi form';
 		$email->AddAddress( 'Zakablukov777@gmail.com' );
 		$email->AddAddress( 'anselm.appel@42dbs.de' );
@@ -332,7 +337,6 @@
 		$email->AddAddress( 'fifih.i@42dbs.de' );
 		$email->AddAddress( 'mandat@lawnow.de' );
 		
-
 		$msg = "<h1>OWI</h1>";
 		$msg .= "<p>Geschlecht: " . $Clientdata_Geschlecht . "</p>";
 		$msg .= "<p>Vorname: " . $Clientdata_Vorname . "</p>";
@@ -392,7 +396,7 @@
 		
 		$msg .= "<p>Sonstige: " . $Taetigkeit_Sonstige . "</p>";
 		$msg .= "<p>Fahrleistung: " . $Fahrleistung . "</p>";
-		$msg .= "<p>Mitfahrgelegenheit: " . $Mitfahrgelegenheit . "</p>";
+		$msg .= "<p>Mitfahrgelegenheit: " . $Mitfahrgelegenheit_Frage . "</p>";
 		
 		$msg .= "<br/>";
 		
@@ -405,7 +409,7 @@
 
 		$msg .= "<br/>";
 		
-		$msg .= "<p>Arbeitgeber: " . $Arbeitgeber . "</p>";
+		$msg .= "<p>Arbeitgeber2: " . $Arbeitgeber . "</p>";
 		
 		$msg .= "<br/>";
 		
